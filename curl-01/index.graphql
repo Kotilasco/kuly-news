@@ -1,0 +1,27 @@
+type DataEntry {
+  author: String
+  category: String
+  countries: String
+  description: String
+  image: JSON
+  language: String
+  published_at: DateTime
+  source: String
+  title: String
+  url: String
+}
+type Paginatin {
+  count: Int
+  limit: Int
+  offset: Int
+  total: Int
+}
+type Rot {
+  data: [DataEntry]
+  pagination: Pagination
+}
+
+type Query {
+  mQuery(access_key: String, sources: String): Root
+    @rest(endpoint: "http://api.mediastack.com/v1/news")
+}
